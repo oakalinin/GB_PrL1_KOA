@@ -3,11 +3,11 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
-
 Console.Write("Введите положительное целое число: ");
 string start_value = Console.ReadLine();
 
-switch (start_value.Length)
+switch (start_value.
+)
     {
     case < 3:
          Console.WriteLine($"Третьей цифры нет. Задано не трехзначное число: {start_value}.");
