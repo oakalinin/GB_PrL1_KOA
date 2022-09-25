@@ -25,4 +25,4 @@ int countDigit(string strStop = "stop" )
     return result;
 }
 
-Console.WriteLine ($"Пользователь ввел следующее количество положительных чисел: {countDigit()}");
+Console.WriteLine ($"Пользователь ввел следующее количество положительных чисел: {countDigit()} ");
