@@ -38,7 +38,7 @@ void findArr(int[,] temp_arr,int tmp_row, int tmp_col)
     }
     else
     {
-        Console.WriteLine("Неправильно заданы координаты элемента массива.");
+        Console.WriteLine($"Неправильно заданы координаты элемента массива. Допустимые значения - [индекс строки - от 0 до {temp_arr.GetLength(0)-1}, индекс столбца - от 0 до {temp_arr.GetLength(1)-1}].");
     }
 
 }
