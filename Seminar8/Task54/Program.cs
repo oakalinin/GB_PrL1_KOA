@@ -1,9 +1,12 @@
-﻿// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+﻿// Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по возрастанию элементы каждой строки двумерного массива.
 // Например, задан массив:
 // 1 4 7 2
 // 5 9 2 3
 // 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+// В итоге получается вот такой массив:
+// 1 2 4 7
+// 2 3 5 9
+// 2 4 4 8
 
 int[,] GetArr(int size_1 = 3, int size_2=4, int minValue=-10, int maxValue=10)
 {
@@ -30,22 +33,29 @@ void printArr(int[,] temp_arr)
     }
 }
 
-void AvgArr(int[,] temp_arr)
+int[,] GetSortArr(int[,] temp_arr)
 {
-    double AvgRezult;
-
-    for (int j = 0; j<temp_arr.GetLength(1); j++)
-    {
-        AvgRezult=0;
-        for (int i=0; i<temp_arr.GetLength(0); i++)
+    int tmpE;
+    int indMin;
+    for (int i=0; i<temp_arr.GetLength(0); i++)
+        for (int j=0; j<temp_arr.GetLength(1); j++)
         {
-            AvgRezult=AvgRezult+temp_arr[i,j];       
+            tmpE=temp_arr[i,j];
+            indMin=j;
+            for (int k=0; k<temp_arr.GetLength(1); k++)
+            {
+                if (tmpE<temp_arr[i,k])
+                {
+                    tmpE=temp_arr[i,k];
+                    indMin=k;
+                    temp_arr[i,k]=temp_arr[i,j];
+                    temp_arr[i,j]=tmpE;
+                }
+            }     
         }
-        AvgRezult = (double)AvgRezult/temp_arr.GetLength(1);
-        Console.Write($"{AvgRezult:f2}\t");
-    } 
+       
+    return temp_arr;
 }
-
 
 int row;
 int col;
@@ -58,8 +68,8 @@ if (col>0 & row>0)
   {
         int[,] arr = GetArr(row, col);
         printArr (arr);
-        Console.Write("Среднее арифметическое каждого столбца: ");
-        AvgArr(arr);
+        Console.WriteLine ("В итоге получается вот такой массив: ");
+        arr=GetSortArr(arr);
+        printArr (arr);
   }     
   else Console.Write("Неправильно задан размер массива.");
-   
