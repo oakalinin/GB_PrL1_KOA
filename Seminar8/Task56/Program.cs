@@ -53,11 +53,9 @@ void minSumElement (int[,] tmp_arr)
  
 int row;
 int col;
-Console.Write("Введите число строк: ");
+Console.Write("Введите размер прямоугольного двумерного массива: ");
 int.TryParse(Console.ReadLine(), out row);
-
-Console.Write("Введите число столбцов: ");
-int.TryParse(Console.ReadLine(), out col);
+col=row;
 if (col>0 & row>0)
   {
         int[,] arr = GetArr(row, col);
